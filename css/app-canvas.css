@@ -1,0 +1,142 @@
+* {
+    margin: 0px;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+img {
+    max-width: 100%;
+}
+
+
+body {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+}
+.contenedor {
+    max-width: 1000px;
+    width: 100%;
+    margin: 0 auto;
+}
+.barra {
+    background-color: rgb(22, 26, 20);
+    height: 50px;
+    width: 100%;
+    color: rgb(250, 250, 250);
+    display: flex;
+    align-items: center;
+}
+.tg {
+    border-collapse: collapse;
+    border-spacing: 0;
+    margin: 0px auto;
+}
+
+.tg td {
+    border-color: rgba(136, 133, 133, 0.342);
+    border-style: solid;
+    border-width: 2px;
+   
+    font-size: 14px;
+    padding: 20px 18px;
+    word-break: normal;
+}
+
+.tg th {
+    border-color: rgba(136, 133, 133, 0.342);
+    border-style: solid;
+    border-width: 1px;
+    
+    font-size: 14px;
+    font-weight: normal;
+    padding: 20px 18px;
+    word-break: normal;
+}
+
+h1,
+h3 {
+    text-align: center;
+    color: #11b28e;
+}
+h4{
+    color: #11b28e;
+
+}
+button {
+    display: block;
+    margin-top: 30px;
+    color: white;
+    border: none;
+    background-color: #11b28e;
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+strong,
+p,
+
+span,
+.tg-0lax {
+    color: rgba(57, 58, 57, 0.781);
+}
+p{
+    line-height: 2rem;
+}
+
+.tg .tg-0lax {
+    text-align: left;
+    vertical-align: top
+}
+
+li {
+    color:#11b28e;
+}
+
+input {
+    margin: 10px;
+}
+
+.contenido-footer {
+    height: 90px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    margin-top: 150px;
+    background-color: black;
+}
+
+.contenido-footer span {
+    color: white;
+}
+.contenido-imprimir{
+    padding: 30px;
+}
+.contenedor-canvas-resultados{
+    max-width: 1250px;
+    margin: 0 auto;
+}
+@media (min-width: 768px) {
+    .tg {
+        width: auto !important;
+    }
+    .tg col {
+        width: auto !important;
+    }
+    .tg-wrap {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        margin-top: 80px;
+    }
+    .img-app-canvas-hader{
+        background-image: url(/apps-weblocal/img-landing-canvas/canvas_modelo-grafico-verde.png);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        height: 60vh;
+    }
+}
