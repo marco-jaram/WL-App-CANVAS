@@ -1,285 +1,809 @@
-
-
-
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
-    <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-W4HGS8R');</script>
-    <!-- End Google Tag Manager -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name=»robots» content=»noindex»>
-
-    <title>App Canvas modelo de negocio</title>
-    <link rel="icon" type="image/png" href="img-landing-canvas/favicon-weblocal.png">
-    <link rel="stylesheet" href="/apps-weblocal/css/app-canvas.css">
-
+    <meta name="robots" content="noindex">
+    <title>Modelo de Negocio Canvas | WeblocalMX</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/css/app-canvas.css">
 </head>
 
 <body>
-      <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W4HGS8R"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
+    <!-- Barra de navegación -->
     <div class="barra">
-        <div class="logo contenedor"> <i>Weblocalmx</i></div>
+        <div class="contenedor barra-contenido">
+            <div class="logo">
+                <i class="fas fa-chart-line"></i> Weblocalmx
+            </div>
+            <div class="acciones-barra">
+                <button
+                    id="cerrar-sesion"
+                    class="cerrar-sesion"
+                    style="display: none;"
+                >
+                    <i class="fas fa-sign-out-alt"></i> Cerrar Sesión
+                </button>
+            </div>
+        </div>
     </div>
-    <div class="contenedor">
-    <h1>MODELO DE NEGOCIOS CANVAS</h1>
-        <h1>APP PROPUESTA DE VALOR</h1>
-        <div class="img-app-canvas-hader"></div>
-        <p>Para mayor comodidad utiliza una tableta, laptop o desktop.</p>
-        <p>Si aun no tienes la propuesta de valor te tengo una buena noticia. Tengo una aplicación similar a ésta y
-            ¡también es gratis!. Entra a <a href="https://weblocalmx.com/apps-weblocal/app-propuesta-de-valor.php">Propuesta de valor</a> con la clave: propuestadevalor2022</p>
-        <br>
-        <p> <strong>Instrucciones</strong> : contesta el cuestionario con la mayor cantidad de respuestas. Carga las
-            respuestas dándole al botón "cargar respuestas" y luego al botón "generara pdf" y descárgalo.</p>
-        <p>Espero te sea de mucha utilidad. &#128513;</p>
-    </div>
+    <!-- Login Section Mejorado -->
+    <section id="login-section" class="login-container contenedor">
+        <div class="login-card">
+            <div class="login-header">
+                <i class="fas fa-lock login-icon"></i>
+                <h2>¡Bienvenido/a !</h2>
+            </div>
+            <div class="login-body">
+                <p>Ingresa tu contraseña para acceder a la herramienta de Modelo de Negocios (canvas).</p>
+                <div class="input-group">
+                    <label for="password">Contraseña</label>
+                    <div class="password-input-wrapper">
+                        <input type="password" id="password" placeholder="Ingresa la contraseña">
+                        <button id="toggle-password" class="toggle-password" type="button">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                    <button id="login-button" class="btn-primary btn-login">
+                        <i class="fas fa-arrow-right"></i> Iniciar Sesión
+                    </button>
+                </div>
+                <div id="login-error" class="error-message"></div>
+            </div>
+        </div>
+    </section>
 
-    <br><br>
-
-
-
-
-
-    <!-- formulario de respuestas -->
-    <div class="contenedor">
-        <form id="formulario">
-            <h4>0. Nombre de proyecto</h4>
-            <span> &#9187; </span> <input type="text" name="name-nombre-proyecto"
-                id="respuesta-nombre-proyecto"><br><br>
-            <br>
-            <h4>1. Segmentacion de clientes</h4>
-            <p>¿A quién va dirigido? <br>
-
-
-                <span>1 </span><input type="text" name="name-propuesta1" id="respuesta-segmentacion1"><br>
-                <span>2 </span><input type="text" name="name-propuesta2" id="respuesta-segmentacion2">
-            </p>
-            <br><br>
+    <div id="app-content" style="display: none;"> 
 
 
 
-            <h4>2. Propuesta de valor</h4>
-            <p>¿De qué va mi negocio, cuál es el beneficio principal? <br>
+    <!-- Header con título e instrucciones -->
+    <header class="app-header contenedor">
+        <div class="app-header-content">
+            <h1>Modelo de Negocio Canvas</h1>
+            <p class="app-subtitle">Herramienta para visualizar todos los aspectos de tu modelo de negocio en un solo
+                lugar</p>
+        </div>
+    </header>
 
+    <!-- Sección de instrucciones -->
+    <section class="app-instructions contenedor">
+        <div class="instruction-card">
+            <div class="instruction-header">
+                <i class="fas fa-info-circle"></i>
+                <h3>Cómo utilizar esta herramienta</h3>
+            </div>
+            <div class="instruction-body">
+                <ol class="steps-list">
+                    <li><span class="step-number">1</span> <span class="step-text">Completa el formulario con
+                            información de tu negocio</span></li>
+                    <li><span class="step-number">2</span> <span class="step-text">Haz clic en "Cargar respuestas en
+                            Canvas" para visualizar tu modelo</span></li>
+                    <li><span class="step-number">3</span> <span class="step-text">Revisa el Canvas generado y utiliza
+                            el botón "Guradad como JSON" para guardarlo</span></li>
+                </ol>
+                <div class="tip-box">
+                    <i class="fas fa-lightbulb"></i>
+                    <p>Para mayor comodidad, utiliza una tableta, laptop o desktop. <br> Verás dos ejemplos: uno para una intructora de yoga y otro  para psicologa (precargado en los formularios). <br> Éste último es el ejemplo general que podras visaulizarlo solo con dar al boton de abajo "Cargar respesutas canvas" sin rellenar el fomulario. </p>
+                </div>
+                <div class="alert-box">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <p>Si aún no tienes la propuesta de valor, puedes utilizar nuestra app. También es gratuita 🚀. Solo enviame un correo a hola@weblocalmx.com
+                </div>
+            </div>
+        </div>
+    </section>
 
-                <span>1 </span><input type="text" name="name-respuesta-propuesta1" id="respuesta-propuesta1"><br>
-            </p>
-
-            <br><br>
-
-            <h4>3. Canales</h4>
-            <p>Medio que utilizas para que el cliente conozca tu servicio y lo compre. <br>
-
-                <span>1 </span><input type="text" name="name-canales1" id="respuesta-canes1"><br>
-                <span>2 </span><input type="text" name="name-canales2" id="respuesta-canes2"><br>
-                <span>3 </span><input type="text" name="name-canales3" id="respuesta-canes3"><br>
-                <span>4 </span><input type="text" name="name-canales4" id="respuesta-canes4"><br>
-                <span>5 </span><input type="text" name="name-canales5" id="respuesta-canes5">
-            </p>
-            <br><br>
-            <h4>4. Relacion con clientes</h4>
-            <p>A parte de cumplir con lo que ofreces, vas a... <br>
-
-                <span>1 </span><input type="text" name="name-relacion1" id="respuesta-relacion-clientes1"><br>
-                <span>2 </span><input type="text" name="name-relacion2" id="respuesta-relacion-clientes2"><br>
-                <span>3 </span><input type="text" name="name-relacion3" id="respuesta-relacion-clientes3"><br>
-                <span>4 </span><input type="text" name="name-relacion4" id="respuesta-relacion-clientes4"><br>
-                <span>5 </span><input type="text" name="name-relacion5" id="respuesta-relacion-clientes5">
-            </p>
-            <br><br>
-            <h4>5. Fuente de ingresos</h4>
-            <p>Es lógico que venderás, ¿pero más allá de eso qué nos brindará ingresos? <br>
-
-                <span>1 </span><input type="text" name="nameingreso1" id="respuesta-ingresos1"><br>
-                <span>2 </span><input type="text" name="nameingreso2" id="respuesta-ingresos2"><br>
-                <span>3 </span><input type="text" name="nameingreso3" id="respuesta-ingresos3"><br>
-                <span>4 </span><input type="text" name="nameingreso4" id="respuesta-ingresos4"><br>
-                <span>5 </span><input type="text" name="nameingreso5" id="respuesta-ingresos5">
-            </p>
-            <br><br>
-            <h4>6. Recursos clave</h4>
-            <p>Anota los Recursos Claves para tener un negocio de éxito.Herramientas fisicas y digitales. Web,
-                programas, etc. <br>
-
-                <span>1 </span><input type="text" name="name-recurso1" id="respuesta-recursos1"><br>
-                <span>2 </span><input type="text" name="name-recurso2" id="respuesta-recursos2"><br>
-                <span>3 </span><input type="text" name="name-recurso3" id="respuesta-recursos3"><br>
-                <span>4 </span><input type="text" name="name-recurso4" id="respuesta-recursos4"><br>
-                <span>5 </span><input type="text" name="name-recurso5" id="respuesta-recursos5">
-            </p>
-            <br><br>
-            <h4>7. Actividades</h4>
-            <p>¿Qué tienes que hacer para cumplir con tus objetivos y propuesta de valor? <br>
-
-                <span>1 </span><input type="text" name="name-ctividades1" id="respuesta-actividades1"><br>
-                <span>2 </span><input type="text" name="name-ctividades2" id="respuesta-actividades2"><br>
-                <span>3 </span><input type="text" name="name-ctividades3" id="respuesta-actividades3"><br>
-                <span>4 </span><input type="text" name="name-ctividades4" id="respuesta-actividades4"><br>
-                <span>5 </span><input type="text" name="name-ctividades5" id="respuesta-actividades5">
-            </p>
-            <br><br>
-            <h4>8. Colaboradores</h4>
-            <p>¿Cuáles son las alianzas necesarias para poder ejecutar el negocio? Diseñador, copywritting, etc. <br>
-
-
-                <span>1 </span><input type="text" name="name'colaboradores1" id="respuesta-colaboradores1"><br>
-                <span>2 </span><input type="text" name="name'colaboradores2" id="respuesta-colaboradores2"><br>
-                <span>3 </span><input type="text" name="name'colaboradores3" id="respuesta-colaboradores3"><br>
-                <span>4 </span><input type="text" name="name'colaboradores4" id="respuesta-colaboradores4"><br>
-                <span>5 </span><input type="text" name="name'colaboradores5" id="respuesta-colaboradores5">
-            </p>
-            <br><br>
-            <h4>9. Estructura de costes</h4>
-            <p>¿Cuánto cuesta lo esencial para tener éxito? <br>
-
-                <span>1 </span><input type="text" name="name costes1" id="respuesta-costes1"><br>
-                <span>2 </span><input type="text" name="name costes2" id="respuesta-costes2"><br>
-                <span>3 </span><input type="text" name="name costes3" id="respuesta-costes3"><br>
-                <span>4 </span><input type="text" name="name costes4" id="respuesta-costes4"><br>
-                <span>5 </span><input type="text" name="name costes5" id="respuesta-costes5">
-            </p>
-
-            <button type="submit">CARGAR RESPUESTAS EN CANVAS</button>
-            <div class="mensaje-carga"></div>
-            <button onclick="javascript:window.print()"> GENERA PDF</button>
-        </form>
-    </div>
-    <br><br><br>
-    <!--  RESPUESTAS LIENZO CON RECUADROS -->
-    <div class="contenedor-canvas-resultados">
-        <h2>Resultado:</h2>
-        <div class="contenido-imprimir">
-            <h3 id="nombre-del-proyecto">Nombre del proyecto</h3>
-
-            <div class="tg-wrap">
-                <table class="tg">
-                    <thead>
-                        <tr>
-                            <th class="tg-0lax" rowspan="2">8. Colaboradores <br> <img
-                                    src="/apps-weblocal/img-landing-canvas/icono-canvas-colaboradores.png" alt="">
-                                <ol class="colaboradores">
-                                    <li class="colaboradores-1" id="colaboradores1"></li>
-                                    <li class="colaboradores-2" id="colaboradores2"></li>
-                                    <li class="colaboradores-3" id="colaboradores3"></li>
-                                    <li class="colaboradores-4" id="colaboradores4"></li>
-                                    <li class="colaboradores-5" id="colaboradores5"></li>
-                                </ol>
-                            </th>
-                            <th class="tg-0lax">7. Actividades <br> <img
-                                    src="/apps-weblocal/img-landing-canvas/icono-canvas-actividades.png" alt="">
-                                <ol class="actividades">
-                                    <li class="actividades-1" id="actividades1"></li>
-                                    <li class="actividades-2" id="actividades2"></li>
-                                    <li class="actividades-3" id="actividades3"></li>
-                                    <li class="actividades-4" id="actividades4"></li>
-                                    <li class="actividades-5" id="actividades5"></li>
-                                </ol>
-                            </th>
-                            <th class="tg-0lax" rowspan="3">2. Propuesta de valor <br> <img
-                                    src="/apps-weblocal/img-landing-canvas/icono-canvas-valor.png" alt="">
-                                <ol class="propuesta-de-valor">
-                                    <li class="propuesta-de-valor-1" id="propuesta-de-valor1"></li>
-
-
-                                </ol>
-                            </th>
-                            <th class="tg-0lax">4. Relacion con clientes <br> <img
-                                    src="/apps-weblocal/img-landing-canvas/icono-cavas-relacion-cliente-amigo-consulting.png"
-                                    alt="">
-                                <ol class="relacion-clientes">
-                                    <li class="relacion-clientes-1" id="relacion-clientes1"></li>
-                                    <li class="relacion-clientes-2" id="relacion-clientes2"></li>
-                                    <li class="relacion-clientes-3" id="relacion-clientes3"></li>
-                                    <li class="relacion-clientes-4" id="relacion-clientes4"></li>
-                                    <li class="relacion-clientes-5" id="relacion-clientes5"></li>
-                                </ol>
-                            </th>
-                            <th class="tg-0lax" rowspan="2">1. Segmentacion de clientes <br> <img
-                                    src="/apps-weblocal/img-landing-canvas/icono-canvas-segmento-target.png" alt="">
-                                <ol class="segmentacion">
-                                    <li class="segmentacion-1" id="segmentacion1"></li>
-                                    <li class="segmentacion-2" id="segmentacion2"></li>
-
-                                </ol>
-                            </th>
-                        </tr>
-                        <tr>
-                            <td class="tg-0lax">6. Recursos clave<br> <img
-                                    src="/apps-weblocal/img-landing-canvas/icono-canvas-recursos-clave.png" alt="">
-                                <ol class="recursos">
-                                    <li class="recursos-1" id="recursos1"></li>
-                                    <li class="recursos-2" id="recursos2"></li>
-                                    <li class="recursos-3" id="recursos3"></li>
-                                    <li class="recursos-4" id="recursos4"></li>
-                                    <li class="recursos-5" id="recursos5"></li>
-                                </ol>
-                            </td>
-                            <td class="tg-0lax">3. Canales <br> <img
-                                    src="/apps-weblocal/img-landing-canvas/icono-canvas-canales.png" alt="">
-                                <ol class="canales">
-                                    <li class="canales-1" id="canales1"></li>
-                                    <li class="canales-2" id="canales2"></li>
-                                    <li class="canales-3" id="canales3"></li>
-                                    <li class="canales-4" id="canales4"></li>
-                                    <li class="canales-5" id="canales5"></li>
-                                </ol>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="tg-0lax" colspan="2">9. Estructura de costes <br><img
-                                    src="/apps-weblocal/img-landing-canvas/icono-canvas-costes.png" alt="">
-                                <ol class="costes">
-                                    <li class="costes-1" id="costes1"></li>
-                                    <li class="costes-2" id="costes2"></li>
-                                    <li class="costes-3" id="costes3"></li>
-                                    <li class="costes-4" id="costes4"></li>
-                                    <li class="costes-5" id="costes5"></li>
-                                </ol>
-                            </td>
-                            <td class="tg-0lax" colspan="2">5. Fuente de ingresos <br> <img
-                                    src="/apps-weblocal/img-landing-canvas/icono-canvas-ingresos.png" alt="">
-                                <ol class="fuente-ingresos">
-                                    <li class="fuente-ingresos-1" id="fuente-ingresos1"></li>
-                                    <li class="fuente-ingresos-2" id="fuente-ingresos2"></li>
-                                    <li class="fuente-ingresos-3" id="fuente-ingresos3"></li>
-                                    <li class="fuente-ingresos-4" id="fuente-ingresos4"></li>
-                                    <li class="fuente-ingresos-5" id="fuente-ingresos5"></li>
-                                </ol>
-                            </td>
-                        </tr>
-                    </thead>
-                </table>
+    <!-- Formulario principal -->
+    <main class="contenedor">
+        <form id="formulario" class="form-canvas">
+            <!-- Sección 0: Nombre del proyecto -->
+            <div class="form-section">
+                <div class="section-header">
+                    <span class="section-number">0</span>
+                    <h3>Nombre del proyecto</h3>
+                </div>
+                <div class="section-body">
+                    <div class="input-group">
+                        <label for="respuesta-nombre-proyecto">
+                            <i class="fas fa-project-diagram"></i> Nombre del proyecto o negocio
+                        </label>
+                        <input type="text" id="respuesta-nombre-proyecto"
+                            placeholder="Ej: Consultora de Marketing Digital">
+                    </div>
+                </div>
             </div>
 
+            <!-- Sección 1: Segmentación de clientes -->
+            <div class="form-section">
+                <div class="section-header">
+                    <span class="section-number">1</span>
+                    <h3>Segmentación de clientes</h3>
+                </div>
+                <div class="section-body">
+                    <p class="section-description">¿A quién va dirigido tu producto o servicio?</p>
 
+                    <div class="example-box">
+                        <i class="fas fa-lightbulb"></i>
+                        <div>
+                            <p><strong>Ejemplo Segmentación de clientes para instructor de yoga: <br></strong> Adultos profesionales con horarios apretados que buscan yoga online, <br> Personas con movilidad reducida que prefieren practicar yoga desde casa</p>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="respuesta-segmentacion1">
+                            <i class="fas fa-users"></i> Segmento 1
+                        </label>
+                        <input type="text" id="respuesta-segmentacion1"
+                            placeholder="Ej: Pequeñas empresas que necesitan presencia online">
+                    </div>
+
+                    <div class="input-group">
+                        <label for="respuesta-segmentacion2">
+                            <i class="fas fa-users"></i> Segmento 2
+                        </label>
+                        <input type="text" id="respuesta-segmentacion2"
+                            placeholder="Ej: Profesionales independientes en el sector salud">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sección 2: Propuesta de valor -->
+            <div class="form-section">
+                <div class="section-header">
+                    <span class="section-number">2</span>
+                    <h3>Propuesta de valor</h3>
+                </div>
+                <div class="section-body">
+                    <p class="section-description">¿De qué va tu negocio? ¿Cuál es el beneficio principal que ofreces?
+                    </p>
+
+                    <div class="example-box">
+                        <i class="fas fa-lightbulb"></i>
+                        <div>
+                            <p><strong>Ejemplo Propuesta de valor para instructor de yoga: <br> </strong> Clases de yoga online personalizadas con flexibilidad horaria, adaptadas a todos los niveles  y centradas en reducir el estrés y mejorar la flexibilidad</p>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="respuesta-propuesta1">
+                            <i class="fas fa-star"></i> Propuesta de valor principal
+                        </label>
+                        <input type="text" id="respuesta-propuesta1"
+                            placeholder="Ej: Creación de sitios web optimizados que aumentan la visibilidad online">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sección 3: Canales -->
+            <div class="form-section">
+                <div class="section-header">
+                    <span class="section-number">3</span>
+                    <h3>Canales</h3>
+                </div>
+                <div class="section-body">
+                    <p class="section-description">¿Qué medios utilizas para que el cliente conozca tu servicio y lo
+                        compre?</p>
+
+                    <div class="example-box">
+                        <i class="fas fa-lightbulb"></i>
+                        <div>
+                            <p><strong>Ejemplo Canales para instructor de yoga:</strong>  <br> Sitio web con plataforma de yoga en streaming, <br> Perfiles de yoga en Instagram y YouTube, <br> Aplicación móvil para clases de yoga, <br> Colaboraciones con influencers de bienestar</p>
+                        </div>
+                    </div>
+
+                    <div class="input-row">
+                        <div class="input-group">
+                            <label for="respuesta-canes1">
+                                <i class="fas fa-bullhorn"></i> Canal 1
+                            </label>
+                            <input type="text" id="respuesta-canes1" placeholder="Ej: Sitio web">
+                        </div>
+
+                        <div class="input-group">
+                            <label for="respuesta-canes2">
+                                <i class="fas fa-bullhorn"></i> Canal 2
+                            </label>
+                            <input type="text" id="respuesta-canes2" placeholder="Ej: Redes sociales">
+                        </div>
+                    </div>
+
+                    <div class="input-row">
+                        <div class="input-group">
+                            <label for="respuesta-canes3">
+                                <i class="fas fa-bullhorn"></i> Canal 3
+                            </label>
+                            <input type="text" id="respuesta-canes3" placeholder="Ej: Email marketing">
+                        </div>
+
+                        <div class="input-group">
+                            <label for="respuesta-canes4">
+                                <i class="fas fa-bullhorn"></i> Canal 4
+                            </label>
+                            <input type="text" id="respuesta-canes4" placeholder="Ej: Eventos presenciales">
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="respuesta-canes5">
+                            <i class="fas fa-bullhorn"></i> Canal 5
+                        </label>
+                        <input type="text" id="respuesta-canes5" placeholder="Ej: Recomendaciones">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sección 4: Relación con clientes -->
+            <div class="form-section">
+                <div class="section-header">
+                    <span class="section-number">4</span>
+                    <h3>Relación con clientes</h3>
+                </div>
+                <div class="section-body">
+                    <p class="section-description">Además de cumplir con lo que ofreces, ¿cómo te relacionas con tus
+                        clientes?</p>
+
+                    <div class="example-box">
+                        <i class="fas fa-lightbulb"></i>
+                        <div>
+                            <p><strong>Ejemplo Relación con clientes para instructor de yoga:</strong> <br> Evaluación inicial gratuita de postura y flexibilidad, <br> Programa personalizado de progresión en yoga, <br> Comunidad online para practicantes, <br> Consejos semanales de meditación y asanas</p>
+                        </div>
+                    </div>
+
+                    <div class="input-row">
+                        <div class="input-group">
+                            <label for="respuesta-relacion-clientes1">
+                                <i class="fas fa-handshake"></i> Relación 1
+                            </label>
+                            <input type="text" id="respuesta-relacion-clientes1"
+                                placeholder="Ej: Asesoramiento personalizado">
+                        </div>
+
+                        <div class="input-group">
+                            <label for="respuesta-relacion-clientes2">
+                                <i class="fas fa-handshake"></i> Relación 2
+                            </label>
+                            <input type="text" id="respuesta-relacion-clientes2" placeholder="Ej: Soporte técnico 24/7">
+                        </div>
+                    </div>
+
+                    <div class="input-row">
+                        <div class="input-group">
+                            <label for="respuesta-relacion-clientes3">
+                                <i class="fas fa-handshake"></i> Relación 3
+                            </label>
+                            <input type="text" id="respuesta-relacion-clientes3"
+                                placeholder="Ej: Contenido educativo gratuito">
+                        </div>
+
+                        <div class="input-group">
+                            <label for="respuesta-relacion-clientes4">
+                                <i class="fas fa-handshake"></i> Relación 4
+                            </label>
+                            <input type="text" id="respuesta-relacion-clientes4" placeholder="Ej: Webinars mensuales">
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="respuesta-relacion-clientes5">
+                            <i class="fas fa-handshake"></i> Relación 5
+                        </label>
+                        <input type="text" id="respuesta-relacion-clientes5" placeholder="Ej: Programa de fidelización">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sección 5: Fuente de ingresos -->
+            <div class="form-section">
+                <div class="section-header">
+                    <span class="section-number">5</span>
+                    <h3>Fuente de ingresos</h3>
+                </div>
+                <div class="section-body">
+                    <p class="section-description">¿Qué te brindará ingresos más allá de la venta principal?</p>
+
+                    <div class="example-box">
+                        <i class="fas fa-lightbulb"></i>
+                        <div>
+                            <p><strong>Ejemplo Fuente de ingresos para instructor de yoga:</strong>  <br>Suscripciones mensuales a clases de yoga en vivo, <br>Biblioteca de rutinas de yoga grabadas, <br>Programas especializados (yoga terapéutico, prenatal), <br>Venta de accesorios para yoga</p>
+                        </div>
+                    </div>
+
+                    <div class="input-row">
+                        <div class="input-group">
+                            <label for="respuesta-ingresos1">
+                                <i class="fas fa-money-bill-wave"></i> Ingreso 1
+                            </label>
+                            <input type="text" id="respuesta-ingresos1" placeholder="Ej: Diseño de sitios web">
+                        </div>
+
+                        <div class="input-group">
+                            <label for="respuesta-ingresos2">
+                                <i class="fas fa-money-bill-wave"></i> Ingreso 2
+                            </label>
+                            <input type="text" id="respuesta-ingresos2" placeholder="Ej: Mantenimiento mensual">
+                        </div>
+                    </div>
+
+                    <div class="input-row">
+                        <div class="input-group">
+                            <label for="respuesta-ingresos3">
+                                <i class="fas fa-money-bill-wave"></i> Ingreso 3
+                            </label>
+                            <input type="text" id="respuesta-ingresos3" placeholder="Ej: SEO y posicionamiento">
+                        </div>
+
+                        <div class="input-group">
+                            <label for="respuesta-ingresos4">
+                                <i class="fas fa-money-bill-wave"></i> Ingreso 4
+                            </label>
+                            <input type="text" id="respuesta-ingresos4"
+                                placeholder="Ej: Gestión de campañas publicitarias">
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="respuesta-ingresos5">
+                            <i class="fas fa-money-bill-wave"></i> Ingreso 5
+                        </label>
+                        <input type="text" id="respuesta-ingresos5" placeholder="Ej: Formación a equipos">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sección 6: Recursos clave -->
+            <div class="form-section">
+                <div class="section-header">
+                    <span class="section-number">6</span>
+                    <h3>Recursos clave</h3>
+                </div>
+                <div class="section-body">
+                    <p class="section-description">¿Qué recursos son esenciales para que tu negocio tenga éxito?</p>
+
+                    <div class="example-box">
+                        <i class="fas fa-lightbulb"></i>
+                        <div>
+                            <p><strong>Ejemplo Recursos clave para instructor de yoga: </strong> <br> Certificación internacional en yoga, <br>Plataforma segura para clases en streaming, <br>Estudio acondicionado para grabaciones de yoga, <br>Equipamiento específico (esterillas, bloques, props)</p>
+                        </div>
+                    </div>
+
+                    <div class="input-row">
+                        <div class="input-group">
+                            <label for="respuesta-recursos1">
+                                <i class="fas fa-cube"></i> Recurso 1
+                            </label>
+                            <input type="text" id="respuesta-recursos1" placeholder="Ej: Software de diseño web">
+                        </div>
+
+                        <div class="input-group">
+                            <label for="respuesta-recursos2">
+                                <i class="fas fa-cube"></i> Recurso 2
+                            </label>
+                            <input type="text" id="respuesta-recursos2" placeholder="Ej: Equipo de desarrolladores">
+                        </div>
+                    </div>
+
+                    <div class="input-row">
+                        <div class="input-group">
+                            <label for="respuesta-recursos3">
+                                <i class="fas fa-cube"></i> Recurso 3
+                            </label>
+                            <input type="text" id="respuesta-recursos3" placeholder="Ej: Herramientas de análisis">
+                        </div>
+
+                        <div class="input-group">
+                            <label for="respuesta-recursos4">
+                                <i class="fas fa-cube"></i> Recurso 4
+                            </label>
+                            <input type="text" id="respuesta-recursos4" placeholder="Ej: Servidor dedicado">
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="respuesta-recursos5">
+                            <i class="fas fa-cube"></i> Recurso 5
+                        </label>
+                        <input type="text" id="respuesta-recursos5" placeholder="Ej: Oficina física">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sección 7: Actividades -->
+            <div class="form-section">
+                <div class="section-header">
+                    <span class="section-number">7</span>
+                    <h3>Actividades clave</h3>
+                </div>
+                <div class="section-body">
+                    <p class="section-description">¿Qué actividades son fundamentales para cumplir con tu propuesta de
+                        valor?</p>
+
+                    <div class="example-box">
+                        <i class="fas fa-lightbulb"></i>
+                        <div>
+                            <p><strong>Ejemplo Actividades clave para instructor de yoga: </strong> <br>Impartir clases de yoga en vivo, <br> Crear secuencias para diferentes niveles, <br>Desarrollar programas temáticos (yoga para dormir, yoga para oficina),<br> Mantener actualizado el blog sobre posturas y beneficios</p>
+                        </div>
+                    </div>
+
+                    <div class="input-row">
+                        <div class="input-group">
+                            <label for="respuesta-actividades1">
+                                <i class="fas fa-tasks"></i> Actividad 1
+                            </label>
+                            <input type="text" id="respuesta-actividades1" placeholder="Ej: Desarrollo web">
+                        </div>
+
+                        <div class="input-group">
+                            <label for="respuesta-actividades2">
+                                <i class="fas fa-tasks"></i> Actividad 2
+                            </label>
+                            <input type="text" id="respuesta-actividades2" placeholder="Ej: Investigación de mercado">
+                        </div>
+                    </div>
+
+                    <div class="input-row">
+                        <div class="input-group">
+                            <label for="respuesta-actividades3">
+                                <i class="fas fa-tasks"></i> Actividad 3
+                            </label>
+                            <input type="text" id="respuesta-actividades3" placeholder="Ej: Marketing digital">
+                        </div>
+
+                        <div class="input-group">
+                            <label for="respuesta-actividades4">
+                                <i class="fas fa-tasks"></i> Actividad 4
+                            </label>
+                            <input type="text" id="respuesta-actividades4" placeholder="Ej: Atención al cliente">
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="respuesta-actividades5">
+                            <i class="fas fa-tasks"></i> Actividad 5
+                        </label>
+                        <input type="text" id="respuesta-actividades5" placeholder="Ej: Formación continua del equipo">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sección 8: Colaboradores -->
+            <div class="form-section">
+                <div class="section-header">
+                    <span class="section-number">8</span>
+                    <h3>Socios y colaboradores clave</h3>
+                </div>
+                <div class="section-body">
+                    <p class="section-description">¿Qué alianzas son necesarias para ejecutar tu negocio?</p>
+
+                    <div class="example-box">
+                        <i class="fas fa-lightbulb"></i>
+                        <div>
+                            <p><strong>Ejemplo Socios y colaboradores clave para instructor de yoga:</strong> <br> Profesionales de meditación mindfulness, <br>Tiendas de accesorios de yoga, <br>Profesionales de ayurveda, <br>Plataformas especializadas en bienestar</p>
+                        </div>
+                    </div>
+
+                    <div class="input-row">
+                        <div class="input-group">
+                            <label for="respuesta-colaboradores1">
+                                <i class="fas fa-people-arrows"></i> Colaborador 1
+                            </label>
+                            <input type="text" id="respuesta-colaboradores1" placeholder="Ej: Agencias de diseño">
+                        </div>
+
+                        <div class="input-group">
+                            <label for="respuesta-colaboradores2">
+                                <i class="fas fa-people-arrows"></i> Colaborador 2
+                            </label>
+                            <input type="text" id="respuesta-colaboradores2" placeholder="Ej: Proveedores de hosting">
+                        </div>
+                    </div>
+
+                    <div class="input-row">
+                        <div class="input-group">
+                            <label for="respuesta-colaboradores3">
+                                <i class="fas fa-people-arrows"></i> Colaborador 3
+                            </label>
+                            <input type="text" id="respuesta-colaboradores3"
+                                placeholder="Ej: Freelancers especializados">
+                        </div>
+
+                        <div class="input-group">
+                            <label for="respuesta-colaboradores4">
+                                <i class="fas fa-people-arrows"></i> Colaborador 4
+                            </label>
+                            <input type="text" id="respuesta-colaboradores4" placeholder="Ej: Fotógrafos profesionales">
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="respuesta-colaboradores5">
+                            <i class="fas fa-people-arrows"></i> Colaborador 5
+                        </label>
+                        <input type="text" id="respuesta-colaboradores5" placeholder="Ej: Consultores de negocios">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sección 9: Estructura de costes -->
+            <div class="form-section">
+                <div class="section-header">
+                    <span class="section-number">9</span>
+                    <h3>Estructura de costes</h3>
+                </div>
+                <div class="section-body">
+                    <p class="section-description">¿Cuáles son los costes principales para el éxito de tu negocio?</p>
+
+                    <div class="example-box">
+                        <i class="fas fa-lightbulb"></i>
+                        <div>
+                            <p><strong>Ejemplo Estructura de costes para instructor de yoga:</strong> Suscripción a plataforma de streaming para clases en vivo, Accesorios de yoga para demostraciones, Marketing en redes de bienestar, Cursos avanzados de especialización en yoga</p>
+                        </div>
+                    </div>
+
+                    <div class="input-row">
+                        <div class="input-group">
+                            <label for="respuesta-costes1">
+                                <i class="fas fa-receipt"></i> Coste 1
+                            </label>
+                            <input type="text" id="respuesta-costes1" placeholder="Ej: Salarios del equipo">
+                        </div>
+
+                        <div class="input-group">
+                            <label for="respuesta-costes2">
+                                <i class="fas fa-receipt"></i> Coste 2
+                            </label>
+                            <input type="text" id="respuesta-costes2" placeholder="Ej: Licencias de software">
+                        </div>
+                    </div>
+
+                    <div class="input-row">
+                        <div class="input-group">
+                            <label for="respuesta-costes3">
+                                <i class="fas fa-receipt"></i> Coste 3
+                            </label>
+                            <input type="text" id="respuesta-costes3" placeholder="Ej: Marketing y publicidad">
+                        </div>
+
+                        <div class="input-group">
+                            <label for="respuesta-costes4">
+                                <i class="fas fa-receipt"></i> Coste 4
+                            </label>
+                            <input type="text" id="respuesta-costes4" placeholder="Ej: Alquiler de oficina">
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="respuesta-costes5">
+                            <i class="fas fa-receipt"></i> Coste 5
+                        </label>
+                        <input type="text" id="respuesta-costes5"
+                            placeholder="Ej: Gastos de infraestructura tecnológica">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Botones de acción -->
+            <div class="form-actions">
+                <button id="generar-canvas" type="submit" class="btn-primary">
+                    <i class="fas fa-sync-alt"></i> Cargar respuestas en Canvas
+                </button>
+                <div id="mensaje-carga" class="mensaje-carga">
+                    <div class="spinner"></div>
+                    <span class="mensaje-carga-texto">Generando Canvas...</span>
+                </div>
+            </div>
+
+            <!-- Botones de gestión de datos -->
+            <div class="data-actions">
+                <button id="  -json" type="button" class="btn-secondary">
+                    <i class="fas fa-save"></i> Guardar como JSON
+                </button>
+                <label for="cargar-json" class="btn-secondary upload-label">
+                    <i class="fas fa-upload"></i> Cargar JSON
+                    <input type="file" id="cargar-json" accept=".json">
+                </label>
+            </div>
+        </form>
+    </main>
+
+    <!-- Sección de resultados (Canvas) -->
+    <section id="canvas-resultado" class="canvas-resultado contenedor">
+        <div class="resultado-header">
+            <i class="fas fa-clipboard-check"></i>
+            <h2>Tu Modelo de Negocio Canvas</h2>
+            <p class="resultado-subtitle">Visualización completa de los elementos clave de tu modelo de negocio</p>
+        </div>
+
+        <div class="contenido-imprimir">
+            <h3 id="nombre-del-proyecto" class="canvas-title">Nombre del proyecto</h3>
+
+            <div class="canvas-grid">
+                <div class="canvas-cell socios">
+                    <div class="cell-header">
+                        <span class="cell-number">8</span>
+                        <h4>Socios clave</h4>
+                        <i class="fas fa-people-arrows cell-icon"></i>
+                    </div>
+                    <ul>
+                        <li id="colaboradores1"></li>
+                        <li id="colaboradores2"></li>
+                        <li id="colaboradores3"></li>
+                        <li id="colaboradores4"></li>
+                        <li id="colaboradores5"></li>
+                    </ul>
+                </div>
+
+                <div class="canvas-cell actividades">
+                    <div class="cell-header">
+                        <span class="cell-number">7</span>
+                        <h4>Actividades clave</h4>
+                        <i class="fas fa-tasks cell-icon"></i>
+                    </div>
+                    <ul>
+                        <li id="actividades1"></li>
+                        <li id="actividades2"></li>
+                        <li id="actividades3"></li>
+                        <li id="actividades4"></li>
+                        <li id="actividades5"></li>
+                    </ul>
+                </div>
+
+                <div class="canvas-cell propuesta">
+                    <div class="cell-header">
+                        <span class="cell-number">2</span>
+                        <h4>Propuesta de valor</h4>
+                        <i class="fas fa-star cell-icon"></i>
+                    </div>
+                    <ul>
+                        <li id="propuesta-de-valor1"></li>
+                    </ul>
+                </div>
+
+                <div class="canvas-cell relacion">
+                    <div class="cell-header">
+                        <span class="cell-number">4</span>
+                        <h4>Relación con clientes</h4>
+                        <i class="fas fa-handshake cell-icon"></i>
+                    </div>
+                    <ul>
+                        <li id="relacion-clientes1"></li>
+                        <li id="relacion-clientes2"></li>
+                        <li id="relacion-clientes3"></li>
+                        <li id="relacion-clientes4"></li>
+                        <li id="relacion-clientes5"></li>
+                    </ul>
+                </div>
+
+                <div class="canvas-cell segmentos">
+                    <div class="cell-header">
+                        <span class="cell-number">1</span>
+                        <h4>Segmentos de clientes</h4>
+                        <i class="fas fa-users cell-icon"></i>
+                    </div>
+                    <ul>
+                        <li id="segmentacion1"></li>
+                        <li id="segmentacion2"></li>
+                    </ul>
+                </div>
+
+                <div class="canvas-cell recursos">
+                    <div class="cell-header">
+                        <span class="cell-number">6</span>
+                        <h4>Recursos clave</h4>
+                        <i class="fas fa-cube cell-icon"></i>
+                    </div>
+                    <ul>
+                        <li id="recursos1"></li>
+                        <li id="recursos2"></li>
+                        <li id="recursos3"></li>
+                        <li id="recursos4"></li>
+                        <li id="recursos5"></li>
+                    </ul>
+                </div>
+
+                <div class="canvas-cell canales">
+                    <div class="cell-header">
+                        <span class="cell-number">3</span>
+                        <h4>Canales</h4>
+                        <i class="fas fa-bullhorn cell-icon"></i>
+                    </div>
+                    <ul>
+                        <li id="canales1"></li>
+                        <li id="canales2"></li>
+                        <li id="canales3"></li>
+                        <li id="canales4"></li>
+                        <li id="canales5"></li>
+                    </ul>
+                </div>
+
+                <div class="canvas-cell costes">
+                    <div class="cell-header">
+                        <span class="cell-number">9</span>
+                        <h4>Estructura de costes</h4>
+                        <i class="fas fa-receipt cell-icon"></i>
+                    </div>
+                    <ul>
+                        <li id="costes1"></li>
+                        <li id="costes2"></li>
+                        <li id="costes3"></li>
+                        <li id="costes4"></li>
+                        <li id="costes5"></li>
+                    </ul>
+                </div>
+
+                <div class="canvas-cell ingresos">
+                    <div class="cell-header">
+                        <span class="cell-number">5</span>
+                        <h4>Fuentes de ingresos</h4>
+                        <i class="fas fa-money-bill-wave cell-icon"></i>
+                    </div>
+                    <ul>
+                        <li id="fuente-ingresos1"></li>
+                        <li id="fuente-ingresos2"></li>
+                        <li id="fuente-ingresos3"></li>
+                        <li id="fuente-ingresos4"></li>
+                        <li id="fuente-ingresos5"></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="resultado-actions">
+            <button id="volver-formulario" class="btn-secondary">
+                <i class="fas fa-edit"></i> Editar datos
+            </button>
+
+
+            <!-- Botones para guardar y cargar JSON -->
+            <div class="data-actions">
+                <button id="guardar-json" type="button" class="btn-secondary">
+                    <i class="fas fa-save"></i> Guardar como JSON
+                </button>
+                <label for="cargar-json" class="btn-secondary upload-label">
+                    <i class="fas fa-upload"></i> Cargar JSON
+                    <input type="file" id="cargar-json" accept=".json">
+                </label>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal de éxito -->
+    <div id="modal-exito" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <i class="fas fa-check-circle modal-icon success"></i>
+                <h3 id="modal-titulo">Operación exitosa</h3>
+                <button class="cerrar-modal"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body">
+                <p id="modal-mensaje">La acción se ha completado con éxito.</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-primary cerrar-modal">Aceptar</button>
+            </div>
         </div>
     </div>
-    
 
-
-    <footer>
-
-        <div class="contenido-footer">
-            <span class="contenedor">Creado por Marco Jaramillo / 2021
-            </span>
+    <!-- Modal de error -->
+    <div id="modal-error" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <i class="fas fa-exclamation-circle modal-icon error"></i>
+                <h3>Ha ocurrido un error</h3>
+                <button class="cerrar-modal"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body">
+                <p id="modal-error-mensaje">Ha ocurrido un error al procesar tu solicitud.</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-primary cerrar-modal">Entendido</button>
+            </div>
         </div>
-    </footer>
-
-
-
-
+    </div>
+</div>
     <script src="/js/app-convas.js"></script>
-    
+   
 </body>
 
 </html>
